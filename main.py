@@ -38,7 +38,7 @@ class ShohagBusCompany:
 
 class Counter(ShohagBusCompany):
     user_lst = []
-    def reservaton(self):
+    def reservation(self):
         bus_no = int(input("Enter Bus No : "))
         for w in self.total_bus_lst:
             if bus_no == w['coach']:
@@ -52,3 +52,27 @@ class Counter(ShohagBusCompany):
                     w['seat'][seat_no-1] = passenger
             else:
                 print("No bus available")
+
+    def show(self):
+        bus_no = int(input("Enter bus number : "))
+        for w in self.total_bus_lst:
+            if w['coach'] == bus_no:
+                print('*'*50)
+                print()
+                print(f"{' '*10} {'#'*10} BUS INFO {'#'*10}")
+                print(f"Bus number : {bus_no} \t\tDriver : {w['driver']}")
+                print(f"Arrival : {w['arrival']} \t\t\tDeparture Time : {w['departure']} \nFrom : \t{w['from_des']} \t\t\tTo : \t{w['to']}")
+                print()
+                a = 1
+                for i in range(5):
+                    for j in range(2):
+                        print(f"{a}. {w['seat'][a-1]}", end="\t")
+                        a += 1
+                    for j in range(2):
+                        print(f"{a}. {w['seat'][a-1]}", end="\t")
+                        a += 1
+                    print()
+                print('*'*50)
+            else:
+                print("No bus available")
+                break
