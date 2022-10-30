@@ -35,3 +35,20 @@ class ShohagBusCompany:
             self.new_bus = Bus(bus_no, bus_driver, bus_arrival,bus_departure, bus_from, bus_to)
             self.total_bus_lst.append(vars(self.new_bus))
             print("\nBus successfully installed")
+
+class Counter(ShohagBusCompany):
+    user_lst = []
+    def reservaton(self):
+        bus_no = int(input("Enter Bus No : "))
+        for w in self.total_bus_lst:
+            if bus_no == w['coach']:
+                passenger = input("Enter YOur name : ")
+                seat_no = int(input("Enter seat No : "))
+                if seat_no > 20:
+                    print("Seats only 20")
+                elif w['seat'][seat_no] != "Empty":
+                    print("Seat Already Booked")
+                else:
+                    w['seat'][seat_no-1] = passenger
+            else:
+                print("No bus available")
