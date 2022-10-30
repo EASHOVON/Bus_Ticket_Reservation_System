@@ -86,3 +86,17 @@ class Counter(ShohagBusCompany):
         self.new_user = User(name, password)
         self.user_lst.append(vars(self.new_user))
         print("Account Created Successfully\n")
+
+    def available_buses(self):
+        if len(self.total_bus_lst) == 0:
+            print("No Buses available\n")
+        else:
+            print('*'*50)
+            for bus in self.total_bus_lst:
+                print()
+                print(f"{' '*10} {'#'*10} BUS {bus['coach']} INFO {'#'*10}")
+                print(f"Bus number : {bus['coach']} \tDriver : {bus['driver']}")
+                print(
+                    f"Arrival : {bus['arrival']} \tDeparture Time : {bus['departure']} \nFrom : \t{bus['from_des']} \t\tTo : \t{bus['to']}")
+                print()
+            print('*'*50)
