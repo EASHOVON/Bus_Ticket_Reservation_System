@@ -76,3 +76,13 @@ class Counter(ShohagBusCompany):
             else:
                 print("No bus available")
                 break
+
+    def get_users(self):
+        return self.user_lst
+
+    def create_account(self):
+        name = input("Enter your username : ")
+        password = input("Enter your password : ")
+        self.new_user = User(name, password)
+        self.user_lst.append(vars(self.new_user))
+        print("Account Created Successfully\n")
